@@ -1,0 +1,26 @@
+{
+	"name": "uv-python",
+	"service": "python",
+	"dockerComposeFile": "./compose.yaml",
+	"workspaceFolder": "/home/vscode/python",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"ms-python.black-formatter"
+			],
+			"settings": {
+				"python.defaultInterpreterPath": "/home/vscode/python/.venv/bin/python",
+				"python.testing.pytestEnabled": true,
+				"python.testing.pytestArgs": [
+					"-q"
+				],
+				"editor.formatOnSave": true,
+				"python.formatting.provider": "black"
+			}
+		}
+	},
+	"postCreateCommand": "git config --global init.defaultBranch main",
+	"postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}"
+}
